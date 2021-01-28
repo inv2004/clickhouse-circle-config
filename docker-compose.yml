@@ -1,0 +1,39 @@
+version: '3.7'
+
+services:
+  zoo1:
+    image: zookeeper
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=0.0.0.0:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=zoo3:2888:3888;2181
+  zoo2:
+    image: zookeeper
+    environment:
+      ZOO_MY_ID: 2
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=0.0.0.0:2888:3888;2181 server.3=zoo3:2888:3888;2181
+  zoo3:
+    image: zookeeper
+    environment:
+      ZOO_MY_ID: 3
+      ZOO_SERVERS: server.1=zoo1:2888:3888;2181 server.2=zoo2:2888:3888;2181 server.3=0.0.0.0:2888:3888;2181
+  ch1:
+    image: yandex/clickhouse-server
+    volumes:
+    - ./config.xml:/etc/clickhouse-server/config.xml
+    - ./config.d:/etc/clickhouse-server/config.d
+    - ./macros.d/ch1.xml:/etc/clickhouse-server/config.d/macros.xml
+    - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+  ch2:
+    image: yandex/clickhouse-server
+    volumes:
+    - ./config.xml:/etc/clickhouse-server/config.xml
+    - ./config.d:/etc/clickhouse-server/config.d
+    - ./macros.d/ch2.xml:/etc/clickhouse-server/config.d/macros.xml
+    - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+  ch3:
+    image: yandex/clickhouse-server
+    volumes:
+    - ./config.xml:/etc/clickhouse-server/config.xml
+    - ./config.d:/etc/clickhouse-server/config.d
+    - ./macros.d/ch3.xml:/etc/clickhouse-server/config.d/macros.xml
+    - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d

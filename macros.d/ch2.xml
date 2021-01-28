@@ -1,0 +1,8 @@
+<yandex>
+	<macros>
+		<host>ch2</host>
+		<layer>01</layer>
+		<shard>01</shard>
+		<replica>01</replica>
+	</macros>
+</yandex>
