@@ -1,23 +1,23 @@
-CREATE DATABASE IF NOT EXISTS fst;
-CREATE TABLE IF NOT EXISTS fst.tbl1
+CREATE DATABASE IF NOT EXISTS default;
+CREATE TABLE IF NOT EXISTS default.tbl1
 (
     EventDate DateTime,
     UserID UInt32,
     CounterID UInt32
-) ENGINE = ReplicatedReplacingMergeTree('/clickhouse/tables/{firstshard}/tbl1', 'replica_1')
+) ENGINE = ReplicatedReplacingMergeTree('/clickhouse/tables/{mainshard}/tbl1', '{mainreplica}')
 PARTITION BY toYYYYMM(EventDate)
 ORDER BY (CounterID, intHash32(UserID));
 
-CREATE TABLE fst.tbl1_dist AS fst.tbl1 ENGINE = Distributed('lr', '', tbl1, rand());
+CREATE TABLE default.tbl1_dist AS default.tbl1 ENGINE = Distributed('lr', '', tbl1, rand());
 
-CREATE DATABASE IF NOT EXISTS snd;
-CREATE TABLE IF NOT EXISTS snd.tbl1
+CREATE DATABASE IF NOT EXISTS replica;
+CREATE TABLE IF NOT EXISTS replica.tbl1
 (
     EventDate DateTime,
     UserID UInt32,
     CounterID UInt32
-) ENGINE = ReplicatedReplacingMergeTree('/clickhouse/tables/{secondshard}/tbl1', 'replica_2')
+) ENGINE = ReplicatedReplacingMergeTree('/clickhouse/tables/{replicashard}/tbl1', '{secondaryreplica}')
 PARTITION BY toYYYYMM(EventDate)
 ORDER BY (CounterID, intHash32(UserID));
 
-CREATE TABLE snd.tbl1_dist AS snd.tbl1 ENGINE = Distributed('lr', '', tbl1, rand());
+CREATE TABLE replica.tbl1_dist AS replica.tbl1 ENGINE = Distributed('lr', '', tbl1, rand());

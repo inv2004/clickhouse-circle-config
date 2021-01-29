@@ -11,12 +11,12 @@
       <shard>
         <internal_replication>true</internal_replication>
         <replica>
-          <default_database>fst</default_database>
+          <default_database>default</default_database>
           <host>ch1</host>
           <port>9000</port>
         </replica>
         <replica>
-          <default_database>snd</default_database>
+          <default_database>replica</default_database>
           <host>ch2</host>
           <port>9000</port>
         </replica>
@@ -24,12 +24,12 @@
       <shard>
         <internal_replication>true</internal_replication>
         <replica>
-          <default_database>fst</default_database>
+          <default_database>default</default_database>
           <host>ch2</host>
           <port>9000</port>
         </replica>
         <replica>
-          <default_database>snd</default_database>
+          <default_database>replica</default_database>
           <host>ch3</host>
           <port>9000</port>
         </replica>
@@ -37,12 +37,12 @@
       <shard>
         <internal_replication>true</internal_replication>
         <replica>
-          <default_database>fst</default_database>
+          <default_database>default</default_database>
           <host>ch3</host>
           <port>9000</port>
         </replica>
         <replica>
-          <default_database>snd</default_database>
+          <default_database>replica</default_database>
           <host>ch1</host>
           <port>9000</port>
         </replica>
