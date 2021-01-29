@@ -1,6 +1,6 @@
-# circular-clickhouse
+# Clickhouse circular configuration in docker-composer
 
-### Run
+### run
 ```bash
 docker-compose up -d
 ```
