@@ -1,4 +1,4 @@
-# livereach-clickhouse
+# circular-clickhouse
 
 ### Run
 ```bash
