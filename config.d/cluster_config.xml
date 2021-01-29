@@ -1,15 +1,22 @@
+<!--
+  lr:
+    ch1: db1, db3
+    ch2: db2, db1
+    ch3: db3, db2
+ -->
+
 <yandex>
   <remote_servers>
     <lr>
       <shard>
         <internal_replication>true</internal_replication>
         <replica>
-          <default_database>db1</default_database>
+          <default_database>fst</default_database>
           <host>ch1</host>
           <port>9000</port>
         </replica>
         <replica>
-          <default_database>db2</default_database>
+          <default_database>snd</default_database>
           <host>ch2</host>
           <port>9000</port>
         </replica>
@@ -17,12 +24,12 @@
       <shard>
         <internal_replication>true</internal_replication>
         <replica>
-          <default_database>db1</default_database>
+          <default_database>fst</default_database>
           <host>ch2</host>
           <port>9000</port>
         </replica>
         <replica>
-          <default_database>db3</default_database>
+          <default_database>snd</default_database>
           <host>ch3</host>
           <port>9000</port>
         </replica>
@@ -30,12 +37,12 @@
       <shard>
         <internal_replication>true</internal_replication>
         <replica>
-          <default_database>db2</default_database>
+          <default_database>fst</default_database>
           <host>ch3</host>
           <port>9000</port>
         </replica>
         <replica>
-          <default_database>db3</default_database>
+          <default_database>snd</default_database>
           <host>ch1</host>
           <port>9000</port>
         </replica>
@@ -43,10 +50,3 @@
     </lr>
   </remote_servers>
 </yandex>
-
-<!--
-  lr:
-    ch1: db1, db3
-    ch2: db2, db1
-    ch3: db3, db2
- -->

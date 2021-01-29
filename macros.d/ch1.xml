@@ -2,7 +2,7 @@
 	<macros>
 		<host>ch1</host>
 		<layer>01</layer>
-		<shard>01</shard>
-		<replica>01</replica>
+		<firstshard>01</firstshard>
+		<secondshard>03</secondshard>
 	</macros>
 </yandex>

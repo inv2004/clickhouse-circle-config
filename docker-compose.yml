@@ -20,6 +20,7 @@ services:
     image: yandex/clickhouse-server
     volumes:
     - ./config.xml:/etc/clickhouse-server/config.xml
+    - ./users.xml:/etc/clickhouse-server/users.xml
     - ./config.d:/etc/clickhouse-server/config.d
     - ./macros.d/ch1.xml:/etc/clickhouse-server/config.d/macros.xml
     - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
@@ -27,6 +28,7 @@ services:
     image: yandex/clickhouse-server
     volumes:
     - ./config.xml:/etc/clickhouse-server/config.xml
+    - ./users.xml:/etc/clickhouse-server/users.xml
     - ./config.d:/etc/clickhouse-server/config.d
     - ./macros.d/ch2.xml:/etc/clickhouse-server/config.d/macros.xml
     - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
@@ -34,6 +36,7 @@ services:
     image: yandex/clickhouse-server
     volumes:
     - ./config.xml:/etc/clickhouse-server/config.xml
+    - ./users.xml:/etc/clickhouse-server/users.xml
     - ./config.d:/etc/clickhouse-server/config.d
     - ./macros.d/ch3.xml:/etc/clickhouse-server/config.d/macros.xml
     - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
