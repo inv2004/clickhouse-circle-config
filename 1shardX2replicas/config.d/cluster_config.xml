@@ -1,0 +1,24 @@
+<!--
+  lr:
+    ch1: db1, db3
+    ch2: db2, db1
+    ch3: db3, db2
+ -->
+
+<yandex>
+  <remote_servers>
+    <lr>
+      <shard>
+        <internal_replication>true</internal_replication>
+        <replica>
+          <host>ch1</host>
+          <port>9000</port>
+        </replica>
+        <replica>
+          <host>ch2</host>
+          <port>9000</port>
+        </replica>
+      </shard>
+    </lr>
+  </remote_servers>
+</yandex>
